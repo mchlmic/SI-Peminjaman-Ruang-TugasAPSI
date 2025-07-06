@@ -4,4 +4,4 @@ Layanan persuratan dari HMTI saat ini masih dilakukan secara manual, di mana mah
 
 Sistem informasi layanan persuratan HMTI ini dibangun dengan menerapkan **System Development Life Cycle (SDLC)** yang terdiri dari 6 core process, dilaksanakan secara iterative development. Proses pertama adalah **identifikasi proses bisnis** pada sistem lama dan penentuan **system requirements**, yang mencakup **functional requirements** dan **non-functional requirements**, untuk memastikan apa saja yang dibutuhkan dalam membangun sistem.
 
-Website ini dirancang untuk mempermudah akses layanan oleh mahasiswa. Dibangun menggunakan framework **Flask** dari Python untuk bagian backend, sementara bagian frontend menggunakan **HTML**, **CSS**, dan **JavaScript**. Sistem ini terhubung dengan **MySQL** sebagai basis data yang dikelola melalui aplikasi **XAMPP*.
+Website ini dirancang untuk mempermudah akses layanan oleh mahasiswa. Dibangun menggunakan framework **Flask** dari Python untuk bagian backend, sementara bagian frontend menggunakan **HTML**, **CSS**, dan **JavaScript**. Sistem ini terhubung dengan **MySQL**.
