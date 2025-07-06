@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Pembuatan Surat</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+</head>
+
+<body>
+
+    body, html {
+        height: 100%;
+        margin: 0;
+    }
+        .container {
+            border: 1px solid #dee2e6;
+            border-radius: 8px; 
+            padding: 20px; 
+            background-color: white;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+    </style>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div>
+            <h1 style="text-align: center;">Layanan Pembuatan Surat</h1>
+        </div>
+    </div>
+
+    <form action="{{ url_for('buatsurat') }}" method="post">
+        <div class="form-group">
+            <label for="kode">Kode:</label>
+            <input type="text" class="form-control" id="kode" name="kode" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="nama_produk">Nama Produk:</label>
+            <input type="text" class="form-control" id="nama_produk" name="nama_produk" required>
+          </div>
+      
+          <!-- Tambahkan formulir sesuai kebutuhan -->
+          <!-- Contoh: -->
+          <div class="form-group">
+            <label for="gambar">Gambar:</label>
+            <input type="file" class="form-control" id="gambar" name="gambar">
+          </div>
+      
+          <div class="form-group">
+            <label for="kategori">Kategori:</label>
+            <input type="text" class="form-control" id="kategori" name="kategori" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="stock_awal">Stock Awal:</label>
+            <input type="number" class="form-control" id="stock_awal" name="stock_awal" required>
+          </div>
+      
+          <!-- Tambahkan formulir lainnya sesuai dengan model -->
+      
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      
+        <hr class="my-2">
+      </div>
+
+</body>
+</html>
+
+{% endblock%}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+          background-color: #fafafb;
+      }
+
+      .custom-container {
+          margin-top: 25px;
+          border: 1px solid #ffffff;
+          border-radius: 8px; 
+          background-color: white;
+      }
+
+      .table {
+          border: 1px solid #dee2e6; 
+          border-radius: 8px; 
+          margin-bottom: 10px;
+
+        .deskripsi{
+          text-align: justify;
+          max-width: 450px;
+        }
+      }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid custom-container">
+
+<h1 class="text-center container mt-4 mb-4 "><b>Permintaan Anda Sedang Diproses</b></h1>
+<hr class="my-2">
+<h2>Data Pembuatan Surat</h2>
+<div class="table-responsive mx-auto">
+  <table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nama</th>
+        <th scope="col">NIM</th>
+        <th scope="col">Email</th>
+        <th scope="col">Jenis Surat</th>
+        <th scope="col">Deskripsi</th>
+        <th scope="col">Waktu Permohonan</th> 
+        <th scope="col">Surat Balasan</th> 
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in buatsurat_data %}
+        <tr>
+          <td>{{ data.nama }}</td>
+          <td>{{ data.nim }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.jenis_surat }}</td>
+          <td class="deskripsi">{{ data.deskripsi }}</td>
+          <td>{{ data.waktu_permohonan }}</td>
+          <td>
+            {% if data.surat_balasan %}
+              <a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-info btn-sm">Selesai</a>
+            {% else %}
+              Dalam Proses
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>  
+  </table>
+  <hr class="my-2">
+</div>
+
+<hr class="my-2">
+<h2>Data Penandatanganan</h2>
+<div class="table-responsive mx-auto mb-5">
+  <table class="table table-striped">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Nama</th>
+        <th scope="col">NIM</th>
+        <th scope="col">Email</th>
+        <th scope="col">Jenis Dokumen</th>
+        <th scope="col">File Pemohon</th>
+        <th scope="col">Waktu Permohonan</th>
+        <th scope="col">Surat Balasan</th> 
+      </tr>
+    </thead>
+    <tbody>
+      {% for data in tandatangan_data %}
+        <tr>
+          <td>{{ data.nama }}</td>
+          <td>{{ data.nim }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.jenis_dokumen }}</td>
+          <td><a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-primary btn-sm">File Pomohon</a></td>
+          <td>{{ data.waktu_permohonan }}</td>
+          <td>
+            {% if data.surat_balasan %}
+              <a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-info btn-sm">Selesai</a>
+            {% else %}
+              Dalam Proses
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <hr class="my-2">
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block konten %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img/logohmti.ico') }}" type="image/x-icon">
+    <title>Contact</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .custom-container {
+            padding: 20px;
+            margin-top: 50px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: white;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            display: inline-block;
+            text-align: center;
+            padding: 15px;
+            margin: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: rgb(249, 254, 255);
+            transition: transform 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 100%;
+            margin-bottom: 10px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profile-nim {
+            font-size: 18px;
+            background-color: #f5f8fb;
+            color: #03121f;
+        }
+
+        /* Footer styling */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 1570px;
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid custom-container">
+        <h1><b>Profil Anggota Kelompok 01</b></h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-2 profile-card">
+                <img src="{{ url_for('static', filename='img/hanaorsa.jpg') }}" alt="Anggota 1" class="profile-image">
+                <div class="profile-name">Hana Orsa Anggraeni</div>
+                <div class="profile-nim">21070121120007</div>
+            </div>
+            <div class="col-md-2 profile-card">
+                <img src="{{ url_for('static', filename='img/hannashaquilla.jpeg') }}" alt="Anggota 2" class="profile-image">
+                <div class="profile-name">Hanna Shaquilla</div>
+                <div class="profile-nim">21070121120015</div>
+            </div>
+            <div class="col-md-2 profile-card">
+                <img src="{{ url_for('static', filename='img/Michael_2021.jpg') }}" alt="Anggota 3" class="profile-image">
+                <div class="profile-name">Michael</div>
+                <div class="profile-nim">21070121120022</div>
+            </div>
+            <div class="col-md-2 profile-card">
+                <img src="{{ url_for('static', filename='img/micheliandra.jpg') }}" alt="Anggota 4" class="profile-image">
+                <div class="profile-name">Micheli Andra Soepadmoyo</div>
+                <div class="profile-nim">21070121120024</div>
+            </div>
+            <div class="col-md-2 profile-card">
+                <img src="{{ url_for('static', filename='img/juliarainnada.jpeg') }}" alt="Anggota 5" class="profile-image">
+                <div class="profile-name">Julia Rain Nada</div>
+                <div class="profile-nim">21070121120028</div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+<!-- Footer Section -->
+<footer class="footer sticky-bottom py-2 bg-dark text-white">
+    <div class="container-fluid">
+      <span style="font-size: 15px">Copyright © 2023 | Tugas Besar Analisis dan Perancangan Sistem Informasi (APSI) Kelompok 1 (Kelas A)</span>
+      <p style="font-size: 13px">
+        Hana Orsa Anggraeni 21070121120007 | Hanna Shaquilla 21070121120015 | Michael 21070121120022 | Micheli Andra Soepadmoyo 21070121120024 | Julia Rain Nada 21070121120028
+      </p>
+    </div>
+  </footer>
+
+
+</html>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block konten %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Penandatanganan</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <style>
+        .container {
+            border: 1px solid #dee2e6;
+            border-radius: 8px; 
+            padding: 20px; 
+            background-color: white;
+            margin-top: 50px;
+            margin-bottom: 25px;
+        }
+    </style>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div>
+            <h1>Layanan Penandatanganan</h1>
+        </div>
+    </div>
+
+    <form action="{{ url_for('tandatangan') }}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="username" placeholder="Masukkan Nama" name="username" autocomplete="off" required>
+        </div>
+        <div class="mb-3">
+            <label for="nim" class="form-label">NIM</label>
+            <input type="text" class="form-control" id="nim" placeholder="Masukkan NIM" name="nim" autocomplete="off" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Masukkan Email" name="email" autocomplete="off" required>
+        </div>
+        <div class="mb-3">
+            <label for="jenis_dokumen" class="form-label">Jenis Dokumen</label>
+            <input type="text" class="form-control" id="jenis_dokumen" placeholder="Masukkan Jenis Dokumen" name="jenis_dokumen" autocomplete="off" required>
+        </div>  
+        <form action="{{ url_for('buatsurat') }}" method="post">
+            <!-- Isi formulir disini -->
+            <div class="form-group">
+                <label for="file">Upload File:</label>
+                <input type="file" name="file" id="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+</div>
+
+</body>
+</html>
+
+{% endblock%}

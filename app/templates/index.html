@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block konten %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img/logohmti.ico') }}" type="image/x-icon">
+    <title>Home</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .background-container {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .background-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('{{ url_for('static', filename='img/gedungti.jpeg') }}');
+            background-size: cover;
+            background-position: center center;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .custom-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-top: 65px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: white;
+            width: 1200px;
+        }
+
+        .card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body class="background-container">
+    
+    <div class="container-fluid custom-container">
+        <div class="container">
+        <h1 style="text-align: center;"><b>Selamat Datang di Layanan HMTI</b></h1>
+        <hr class="my-2" style="background-color: antiquewhite;">
+        <p style="text-align:center">Silakan pilih jenis layanan yang diinginkan untuk melanjutkan</p>
+        <hr class="my-2" style="background-color: antiquewhite;">
+        </div>
+
+        <div class="container mt-3">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                        <div class="card-body text-center">
+                            <h2 class="mb-4">Pilih Jenis Layanan</h2>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <a href="{{ url_for('buatsurat')}}" class="btn btn-primary btn-lg btn-block">Layanan Pembuatan Surat</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a href="{{ url_for('tandatangan')}}" class="btn btn-success btn-lg btn-block">Layanan Penandatanganan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}

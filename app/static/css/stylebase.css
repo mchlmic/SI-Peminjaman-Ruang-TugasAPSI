@@ -1,0 +1,30 @@
+.status:hover {
+  background-color: yellow;
+}
+.kelas:hover {
+  background-color: rgb(0, 213, 255);
+}      
+.info:hover {
+  background-color: rgb(119, 255, 0);
+}
+
+.nav-link{
+  color: white;
+  font-weight: bold;
+
+}
+
+.dropdown-toggle:hover {
+  font-weight: bold;
+}
+
+  #dropdownlogout:hover {
+    background-color: #ff6b6b; 
+    color: #fff; 
+    font-weight: bold;
+  }
+
+  .navbar {
+    background: linear-gradient(135deg, #48c6ef, #6f86d6);
+    color: white !important;
+  } 

@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block konten %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Sekretaris</title>
+
+    <!-- JavaScript eksternal -->
+<script src="{{url_for('static', filename='js/status.js')}}"></script>
+
+</head>
+
+<body>
+
+<style>
+  .deskripsi-container {
+      max-width: 300px; 
+      overflow: hidden;
+      position: relative;
+  }
+
+  .custom-container {
+      margin-top: 25px;
+      border: 1px solid #ffffff;
+      border-radius: 8px; 
+      background-color: white;
+  }
+  .unggahsuratbls {
+    max-width: 170px;
+  }
+
+</style>
+
+
+
+
+<div class="container-fluid custom-container">
+<hr class="my-2">
+<h2>Data Buat Surat</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>Nama</th>
+      <th>NIM</th>
+      <th>Email</th>
+      <th>Jenis Surat</th>
+      <th>Deskripsi</th>
+      <th>Waktu Permohonan</th> 
+      <th>Surat Balasan</th> 
+      <th>Unggah Surat Balasan</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in buatsurat_data %}
+      <tr>
+        <td>{{ data.nama }}</td>
+        <td>{{ data.nim }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.jenis_surat }}</td>
+        <td>
+          <div class="deskripsi-container" style="text-align: justify;">
+            {{ data.deskripsi }}
+          </div>
+      </td>
+
+        <td>{{ data.waktu_permohonan }}</td>
+        <td>
+          {% if data.surat_balasan %}
+            <a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-info btn-sm">Surat Balasan</a>
+          {% else %}
+            <!-- Tampilkan pesan atau tautan yang sesuai jika surat balasan belum diunggah -->
+            Belum Diunggah
+          {% endif %}
+        </td>
+        <td class="unggahsuratbls">
+          <!-- Form untuk mengunggah surat balasan -->
+          <form action="{{ url_for('unggah_surat_balasan', tabel='buatsurat', id=data.id) }}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="surat_balasan" accept=".pdf" required onchange="updateFileName(this)">
+                  <label class="custom-file-label">Pilih file...</label>                                  
+                </div>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-success btn-sm">Unggah</button>
+                </div>
+            </div>
+        </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr class="my-2">
+
+<hr class="my-2">
+<h2>Data Tanda Tangan</h2>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+        <th>Nama</th>
+        <th>NIM</th>
+        <th>Email</th>
+        <th>Jenis Dokumen</th>
+        <th>File Pemohon</th>
+        <th>Waktu Permohonan</th>
+        <th>Surat Balasan</th> 
+        <th>Unggah Surat Balasan</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in tandatangan_data %}
+      <tr>
+        <td>{{ data.nama }}</td>
+        <td>{{ data.nim }}</td>
+        <td>{{ data.email }}</td>
+        <td>{{ data.jenis_dokumen }}</td>
+        <td><a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-primary btn-sm">File Pemohon</a></td>
+        </td>
+        <td>{{ data.waktu_permohonan }}</td>
+        <td>
+          {% if data.surat_balasan %}
+            <a href="{{ url_for('unduh_file', file_id=data.id) }}" class="btn btn-info btn-sm">Surat Balasan</a>
+          {% else %}
+            <!-- Tampilkan pesan atau tautan yang sesuai jika surat balasan belum diunggah -->
+            Belum Diunggah
+          {% endif %}
+        <td class="unggahsuratbls">
+          <!-- Form untuk mengunggah tandatangan -->
+          <form action="{{ url_for('unggah_surat_balasan', tabel='tandatangan', id=data.id) }}" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="surat_balasan" accept=".pdf" required onchange="updateFileName(this)">
+                  <label class="custom-file-label">Pilih file...</label>                                 
+                </div>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-success btn-sm">Unggah</button>
+                </div>
+            </div>
+        </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr class="my-2">
+
+</div>
+</body>
+
+{% endblock %}
